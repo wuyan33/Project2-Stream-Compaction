@@ -56,12 +56,12 @@ namespace StreamCompaction {
 			int *temp2 = (int*)malloc(n * sizeof(int));
 			timer().startCpuTimer();
 	        // TODO
-			for (int i; i < n; i++) {
+			for (int i = 0; i < n; ++i) {
 				temp1[i] = idata[i] == 0 ? 0 : 1;
 			}
 			scan(n, temp2, temp1);
 			int index = 0;
-			for (int i = 0; i < n; i++) {
+			for (int i = 0; i < n; ++i) {
 				if (temp1[i] == 1) {
 					odata[temp2[i]] = idata[i];
 					index++;
