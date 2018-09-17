@@ -44,7 +44,7 @@ namespace StreamCompaction {
 			cudaMemset(exclusive, 0, length * sizeof(int));
 			cudaMemcpy(exclusive, idata, n * sizeof(int), cudaMemcpyHostToDevice);
 			dim3 fullBlocksPerGrid((length + blockSize - 1) / blockSize);
-			//timer().startGpuTimer();
+			timer().startGpuTimer();
 			// TODO
 			// up-sweep
 			for (int d = 1; d < length; d *= 2) {
@@ -55,7 +55,7 @@ namespace StreamCompaction {
 			for (int d = length / 2; d >= 1; d /= 2) {
 				downSweep<<< fullBlocksPerGrid, blockSize >>>(length, d, exclusive);
 			}
-            //timer().endGpuTimer();
+            timer().endGpuTimer();
 			cudaMemcpy(odata, exclusive, n * sizeof(int), cudaMemcpyDeviceToHost);
 			cudaFree(exclusive);
         }
@@ -87,12 +87,12 @@ namespace StreamCompaction {
 
 			dim3 fullBlocksPerGrid((length + blockSize - 1) / blockSize);
 
-			timer().startGpuTimer();
+			//timer().startGpuTimer();
             // TODO
 			StreamCompaction::Common::kernMapToBoolean<<< fullBlocksPerGrid, blockSize >>>(n, bools, i_aug);
 			scan(n, indices, bools);
 			StreamCompaction::Common::kernScatter <<< fullBlocksPerGrid, blockSize >>>(n, o_aug, i_aug, bools, indices);
-            timer().endGpuTimer();
+            //timer().endGpuTimer();
 			cudaMemcpy(odata, o_aug, n * sizeof(int), cudaMemcpyDeviceToHost);
 
 			int num1 = 0;
