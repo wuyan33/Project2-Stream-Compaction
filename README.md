@@ -25,7 +25,11 @@ This project let us implement a few different versions of the Scan (Prefix Sum) 
   
 ### Result and Performance Analysis
 
-
+* A sample of outcomes:
+  * Scan Test: <br />
+  <img src="img/scanTestsSample.PNG" width = "70%"> <br />
+  * Stream Compaction Test: <br />
+    <img src="img/CompactTestsSample.PNG" width = "70%">
 
 Include analysis, etc. (Remember, this is public, so don't put
 anything here that you don't want to share with the world.)
