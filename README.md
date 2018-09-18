@@ -17,9 +17,9 @@ This project let us implement a few different versions of the Scan (Prefix Sum) 
 * [Algorithm Slides:](https://docs.google.com/presentation/d/1ETVONA7QDM-WqsEj4qVOGD6Kura5I6E9yqH-7krnwZ0/edit#slide=id.p126)
 * Algorithm Demonstration:
   * Naive Inclusive Scan:<br />
-  <img src="img/figure-39-2.jpg" width="70%">
+  <img src="img/figure-39-2.jpg" width="70%"> <br />
   * Work Efficient Scan (up-sweep): <br />
-  <img src="img/upSweep.PNG" width="70%">
+  <img src="img/upSweep.PNG" width="70%"> <br />
   * Work Efficient Scan (down-sweep): <br />
   <img src="img/downSweep.PNG" width="70%">
   
@@ -44,7 +44,7 @@ This project let us implement a few different versions of the Scan (Prefix Sum) 
     <img src="img/compactChart.PNG" width = "90%"><br />
     Just to mention, the two red lines regarding "cpu compact with scan" in both above charts are the same line.
   * Analysis:<br />
-  First we can see that GPU isn't performing significantly better when the test array is short. But when array becomes very large, it also becomes a burden for the CPU and the executing time increases almost exponentially. Under this circumstance we should perceive a much greater performance outcome by GPU.
+  First we can see that GPU isn't performing significantly better when the test array is short. But when array becomes very large, it also becomes a burden for the CPU and the executing time increases almost exponentially. Under this circumstance we should perceive a much greater performance outcome by GPU.<br />
   Taking a closer look, my work efficient algorithm is slower than the naive method when the test array is relatively shorter. As array size increases, work efficient method has a trend of better performance. Thrust method is steady. It may seems slow at first, but when array size increases, its time remains almost the same. Comparing all these methods, thrust scan is clearly the best when array is incredibly large.
 
 * Q & A:
